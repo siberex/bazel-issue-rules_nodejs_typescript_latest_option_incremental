@@ -7,10 +7,13 @@
         "@bazel/buildifier": "latest",
         "@bazel/ibazel": "latest",
         "@bazel/typescript": "latest",
-        "typescript": "~3.5.2"
+        "typescript": "3.4.5"
     },
     "scripts": {
         "build": "bazel build //...",
-        "test": "bazel test //..."
+        "test": "bazel test //...",
+        "build:tsc": "tsc",
+        "prestart:prod": "yarn build:tsc",
+        "start:prod": "node dist/main.js"
     }
 }

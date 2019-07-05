@@ -7,3 +7,15 @@
 #   See https://www.npmjs.com/package/@bazel/typescript#installation
 exports_files(["tsconfig.json"], visibility = ["//:__subpackages__"])
 
+# TS compile
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
+
+# bazel build //:app
+ts_library(
+    name = "app",
+    srcs = ['main.ts'],
+    deps = [
+        "@npm//@types",
+        "@npm//tslib",
+    ],
+)
